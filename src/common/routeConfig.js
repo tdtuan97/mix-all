@@ -1,4 +1,4 @@
-import {App} from '../features/home';
+import {default as App} from '../App';
 import {PageNotFound} from '../features/common';
 import homeRoute from '../features/home/route';
 import commonRoute from '../features/common/route';
