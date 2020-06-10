@@ -1,1 +1,1 @@
-# redux-react
+# README
