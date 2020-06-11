@@ -12,14 +12,13 @@ const childRoutes = [
     homeRoute,
     commonRoute,
     examplesRoute,
-    ...authenticationRoute,
 ];
 
 const routes = [{
     path: '/',
     component: App,
     childRoutes: [
-        ...childRoutes,
+        ...childRoutes, ...authenticationRoute,
         {path: '*', name: 'Page not found', component: PageNotFound},
     ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0)),
 }];
