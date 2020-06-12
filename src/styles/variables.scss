@@ -3,10 +3,20 @@ $zIndexHeader: 100;
 $colorWhite: #fff;
 $colorWhiteOutFocus: rgba(255,255,255,.65);
 
+$colorGray: #606266;
+
 $colorPrimaryHighLight: rgb(105, 149, 201);
 $colorPrimary: rgb(74, 131, 201);
 $colorPrimarySlowLight: rgb(29, 70, 120);
 
 
 $fontSizeDefault: 14px;
-$fontSizePlus: 24px;
+$lineHeightDefault: 18px;
+
+$fontSizeTitle: 24px;
+$lineHeightTitle: 32px;
+
+
+$distanceComponent: 12px;
+
+$borderRadius: 4px;
