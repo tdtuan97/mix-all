@@ -1,9 +1,9 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
-.authentication-layout{
-    .authentication-page-container{
-        max-width: 1200px;
-        justify-content: center;
+.authentication-layout {
+    .authentication-page-container {
+        margin: auto;
+        width: 50%;
     }
 }
