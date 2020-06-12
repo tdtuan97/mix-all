@@ -1,0 +1,53 @@
+
+$colorHeader: $colorWhite;
+.header {
+    background: $colorHeader;
+    width: 100%;
+    z-index: $zIndexHeader;
+    position: relative;
+    top: 0;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+    .header-content{
+        padding: 0 24px;
+
+        height: 100%;
+        max-width: 1200px;
+        position: relative;
+        margin: auto;
+
+        .header-logo{
+            display: inline-block;
+            position: relative;
+            width: 150px;
+            line-height: 64px;
+        }
+        .header-menu{
+            float: right;
+            .menu-content{
+                line-height: 62px;
+                height: 64px;
+                background: $colorHeader;
+                white-space: nowrap;
+                margin: 0;
+                list-style-type: none;
+                .menu-item{
+                    display: inline-block;
+                    padding: 0 12px;
+                    font-weight: bolder;
+                    a{
+                        text-decoration: none;
+                        color: $colorPrimary;
+
+                        &:hover{
+                            color: $colorPrimaryHighLight;
+                        }
+                    }
+
+                    a.active{
+                        color: $colorPrimarySlowLight;
+                    }
+                }
+            }
+        }
+    }
+}
