@@ -1,10 +1,10 @@
-import {useCallback} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {EXAMPLES_COUNTER_MINUS_ONE} from './constants';
+import {useCallback} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {EXAMPLES_COUNTER_MINUS_ONE} from "./constants";
 
 export function counterMinusOne() {
     return {
-        type: EXAMPLES_COUNTER_MINUS_ONE,
+        type: EXAMPLES_COUNTER_MINUS_ONE
     };
 }
 
@@ -21,7 +21,7 @@ export function reducer(state, action) {
         case EXAMPLES_COUNTER_MINUS_ONE:
             return {
                 ...state,
-                count: state.count - 1,
+                count: state.count - 1
             };
 
         default:

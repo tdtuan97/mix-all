@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export default function WelcomePage() {
     return (
         <div className="examples-welcome-page">
             <a href="http://github.com/supnate/rekit">
-                <img src={require('../../images/rekit-react.png')} className="app-logo" alt="logo"/>
+                <img src={require("../../images/rekit-react.png")} className="app-logo" alt="logo"/>
             </a>
             <h1>Welcome to Rekit!</h1>
             <p>
@@ -18,7 +18,7 @@ export default function WelcomePage() {
                 <code>"rekit remove feature examples"</code> via command line under the project folder.
             </p>
             <p>
-                To learn more about how to get started, you can visit:{' '}
+                To learn more about how to get started, you can visit:{" "}
                 <a href="http://docs.rekit.org/app-types/rekit-react">Get started</a>
             </p>
         </div>

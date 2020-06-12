@@ -1,5 +1,5 @@
-import React from 'react';
-import {SidePanel} from './';
+import React from "react";
+import {SidePanel} from "./";
 
 export default function Layout({children}) {
     return (

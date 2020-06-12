@@ -1,12 +1,12 @@
-import React from 'react';
-import {useFetchRedditList} from './redux/hooks';
+import React from "react";
+import {useFetchRedditList} from "./redux/hooks";
 
 export default function RedditListPage() {
     const {
         redditList,
         fetchRedditList,
         fetchRedditListPending,
-        fetchRedditListError,
+        fetchRedditListError
     } = useFetchRedditList();
 
     return (
@@ -18,7 +18,7 @@ export default function RedditListPage() {
                 disabled={fetchRedditListPending}
                 onClick={fetchRedditList}
             >
-                {fetchRedditListPending ? 'Fetching...' : 'Fetch reactjs topics'}
+                {fetchRedditListPending ? "Fetching..." : "Fetch reactjs topics"}
             </button>
             {fetchRedditListError && (
                 <div className="fetch-list-error">Failed to load: {fetchRedditListError.toString()}</div>

@@ -6,7 +6,7 @@
 // Learn more from the introduction of this approach:
 // https://medium.com/@nate_wang/a-new-approach-for-managing-redux-actions-91c26ce8b5da.
 
-import initialState from './initialState';
+import initialState from "./initialState";
 
 const reducers = [];
 

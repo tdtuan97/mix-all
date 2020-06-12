@@ -1,10 +1,10 @@
-import {useCallback} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {EXAMPLES_COUNTER_RESET} from './constants';
+import {useCallback} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {EXAMPLES_COUNTER_RESET} from "./constants";
 
 export function counterReset() {
     return {
-        type: EXAMPLES_COUNTER_RESET,
+        type: EXAMPLES_COUNTER_RESET
     };
 }
 
@@ -21,7 +21,7 @@ export function reducer(state, action) {
         case EXAMPLES_COUNTER_RESET:
             return {
                 ...state,
-                count: 0,
+                count: 0
             };
 
         default:

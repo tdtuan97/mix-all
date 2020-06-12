@@ -1,16 +1,16 @@
 /* This is the Root component mainly initializes Redux and React Router. */
 
-import React from 'react';
-import {Provider} from 'react-redux';
-import {Switch, Route} from 'react-router-dom';
-import {ConnectedRouter} from 'connected-react-router';
-import {hot, setConfig} from 'react-hot-loader';
-import store from './common/store';
-import routeConfig from './common/routeConfig';
-import history from './common/history';
+import React from "react";
+import {Provider} from "react-redux";
+import {Switch, Route} from "react-router-dom";
+import {ConnectedRouter} from "connected-react-router";
+import {hot, setConfig} from "react-hot-loader";
+import store from "./common/store";
+import routeConfig from "./common/routeConfig";
+import history from "./common/history";
 
 setConfig({
-    logLevel: 'debug',
+    logLevel: "debug"
 });
 
 function renderRouteConfigV3(routes, contextPath) {
@@ -24,7 +24,7 @@ function renderRouteConfigV3(routes, contextPath) {
         } else {
             newContextPath = `${routeContextPath}/${item.path}`;
         }
-        newContextPath = newContextPath.replace(/\/+/g, '/');
+        newContextPath = newContextPath.replace(/\/+/g, "/");
         if (item.component && item.childRoutes) {
             const childRoutes = renderRouteConfigV3(item.childRoutes, newContextPath);
             children.push(
@@ -32,11 +32,11 @@ function renderRouteConfigV3(routes, contextPath) {
                     key={newContextPath}
                     render={props => <item.component {...props}>{childRoutes}</item.component>}
                     path={newContextPath}
-                />,
+                />
             );
         } else if (item.component) {
             children.push(
-                <Route key={newContextPath} component={item.component} path={newContextPath} exact/>,
+                <Route key={newContextPath} component={item.component} path={newContextPath} exact/>
             );
         } else if (item.childRoutes) {
             item.childRoutes.forEach(r => renderRoute(r, newContextPath));
@@ -50,7 +50,7 @@ function renderRouteConfigV3(routes, contextPath) {
 }
 
 function Root() {
-    const children = renderRouteConfigV3(routeConfig, '/');
+    const children = renderRouteConfigV3(routeConfig, "/");
     return (
         <Provider store={store}>
             <ConnectedRouter history={history}>{children}</ConnectedRouter>

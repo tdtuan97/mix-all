@@ -1,5 +1,5 @@
-import React from 'react';
-import {useCounterPlusOne, useCounterMinusOne, useCounterReset} from './redux/hooks';
+import React from "react";
+import {useCounterPlusOne, useCounterMinusOne, useCounterReset} from "./redux/hooks";
 
 export default function CounterPage() {
     const {count, counterPlusOne} = useCounterPlusOne();

@@ -1,9 +1,9 @@
-import {default as App} from '../App';
-import {PageNotFound} from '../features/common';
-import homeRoute from '../features/home/route';
-import commonRoute from '../features/common/route';
-import examplesRoute from '../features/examples/route';
-import _ from 'lodash';
+import {default as App} from "../App";
+import {PageNotFound} from "../features/common";
+import homeRoute from "../features/home/route";
+import commonRoute from "../features/common/route";
+import examplesRoute from "../features/examples/route";
+import _ from "lodash";
 import authenticationRoute from "../features/authentication/route";
 
 // NOTE: DO NOT CHANGE the 'childRoutes' name and the declaration pattern.
@@ -11,16 +11,16 @@ import authenticationRoute from "../features/authentication/route";
 const childRoutes = [
     homeRoute,
     commonRoute,
-    examplesRoute,
+    examplesRoute
 ];
 
 const routes = [{
-    path: '/',
+    path: "/",
     component: App,
     childRoutes: [
         ...childRoutes, ...authenticationRoute,
-        {path: '*', name: 'Page not found', component: PageNotFound},
-    ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0)),
+        {path: "*", name: "Page not found", component: PageNotFound}
+    ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0))
 }];
 
 // Handle isIndex property of route config:
@@ -33,7 +33,7 @@ function handleIndexRoute(route) {
     const indexRoute = _.find(route.childRoutes, (child => child.isIndex));
     if (indexRoute) {
         const first = {...indexRoute};
-        first.path = '';
+        first.path = "";
         first.exact = true;
         first.autoIndexRoute = true; // mark it so that the simple nav won't show it.
         route.childRoutes.unshift(first);

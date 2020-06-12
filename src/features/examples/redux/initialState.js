@@ -9,7 +9,7 @@ const initialState = {
     count: 0,
     redditList: [],
     fetchRedditListPending: false,
-    fetchRedditListError: null,
+    fetchRedditListError: null
 };
 
 export default initialState;
