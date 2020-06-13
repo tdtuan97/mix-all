@@ -2,40 +2,35 @@ import React, {Component} from "react";
 
 import HomePage from "./HomePage";
 import {connect} from "react-redux";
-import './style.scss';
 
-class Container extends Component{
+class Container extends Component {
     render() {
-        let arrayFile = [
+        let arrayAudio = [
             {
                 id: 1,
                 title: 'Đêm Trăng Tình Yêu',
-                artist:'Thanh Goll',
-                src: '/',
+                artist: 'Thanh Goll',
+                url: '/',
             },
             {
                 id: 2,
                 title: 'Tình Yêu Mang Theo',
-                artist:'Thanh Goll',
-                src: '/',
+                artist: 'Thanh Goll',
+                url: '/',
             },
             {
                 id: 3,
                 title: 'Cánh Chim Hải Âu',
-                artist:'Thanh Goll',
-                src: '/',
+                artist: 'Thanh Goll',
+                url: '/',
             }
         ];
 
-        let currentFile = {
-            id: 1,
-            title: 'Đêm Trăng Tình Yêu',
-            artist:'Thanh Goll',
-            src: '/',
-        }
-
         return (
-            <HomePage arrayFile={arrayFile} currentFile={currentFile}/>
+            <HomePage
+                {...this.props}
+                arrayAudio={arrayAudio}
+            />
         );
     }
 }
