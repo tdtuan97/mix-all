@@ -4,7 +4,7 @@ export default function WelcomePage() {
     return (
         <div className="examples-welcome-page">
             <a href="http://github.com/supnate/rekit">
-                <img src={require("../../images/rekit-react.png")} className="app-logo" alt="logo"/>
+                <img src={require("../../images/logo.png")} className="app-logo" alt="logo"/>
             </a>
             <h1>Welcome to Rekit!</h1>
             <p>

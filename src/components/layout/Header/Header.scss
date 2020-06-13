@@ -44,12 +44,14 @@ $colorHeader: $colorWhite;
                             color: $colorPrimaryHighLight;
                         }
                     }
-
-                    a.active{
-                        color: $colorPrimarySlowLight;
-                    }
+                }
+                .menu-item.active{
+                    color: $colorPrimarySlowLight;
                 }
             }
+        }
+        .auth-menu{
+            float: right;
         }
     }
 }
