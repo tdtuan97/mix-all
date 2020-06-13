@@ -1,9 +1,8 @@
 // This is the JSON way to define React Router rules in a Rekit app.
 // Learn more from: http://rekit.js.org/docs/routing.html
 
-import LoginPage from "./LoginPage";
-import RegisterPage from "./RegisterPage";
-import Layout from "./Layout";
+import {LoginPage, RegisterPage} from "./";
+import {Layout} from "./";
 
 export default [
     {

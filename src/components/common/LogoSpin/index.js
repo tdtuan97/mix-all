@@ -1,2 +1,1 @@
-import LogoSpin from './LogoSpin';
-export default LogoSpin
+export {default as LogoSpin} from './LogoSpin';

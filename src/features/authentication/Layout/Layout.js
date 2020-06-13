@@ -3,7 +3,6 @@ import './style.scss'
 import {Row, Col} from "antd";
 
 class Layout extends Component {
-
     render() {
         return (
             <div className="authentication-layout">
