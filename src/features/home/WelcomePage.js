@@ -1,15 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Header from "../../component/Header";
 
 export default function WelcomePage() {
     return (
         <div className="home-welcome-page">
-            <header className="app-header">
-                <img src={require("../../images/rekit-react.png")} className="rekit-logo" alt="logo"/>
-                <h1 className="app-title">Welcome</h1>
-            </header>
+            <Header/>
             <div className="app-intro">
-                <h3>To get started:</h3>
                 <ul>
                     <li>
                         Login page:&nbsp;

@@ -3,12 +3,8 @@
 @mixin set-font(
     $fontSize: $fontSizeDefault,
     $lineHeight: $lineHeightDefault,
-    $fontColor: #000000,
-    $fontWeigh: normal,
-    $fontFamily: $fontSizeDefault) {
+    $fontColor: #000000) {
     font-size: $fontSize;
     color: $fontColor;
     line-height: $lineHeight;
-    font-weight: $fontWeigh;
-    font-family: $fontFamily;
 }

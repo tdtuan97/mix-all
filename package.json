@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "@babel/core": "^7.4.3",
     "@rocketstation/babel-plugin-component-index": "^3.0.0",
     "@svgr/webpack": "2.4.1",

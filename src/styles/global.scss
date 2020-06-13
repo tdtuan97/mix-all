@@ -16,3 +16,14 @@ body {
 .cm-box-shadow{
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
 }
+
+a{
+    color: #007bff;
+    text-decoration: none;
+    background-color: initial;
+
+    &:hover{
+        color: #0056b3;
+        text-decoration: underline;
+    }
+}

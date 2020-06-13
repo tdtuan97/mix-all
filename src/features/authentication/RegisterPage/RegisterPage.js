@@ -3,9 +3,8 @@ import Logo from "../../../component/common/Logo";
 import {Link} from "react-router-dom";
 
 import {Input, Button, Card, Form} from 'antd';
-import {UserOutlined, LockOutlined} from '@ant-design/icons';
 
-class LoginPage extends Component {
+class RegisterPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,39 +34,57 @@ class LoginPage extends Component {
                         <Logo/>
                     </Link>
                     <div className="title">
-                        Login
+                        Register
                     </div>
                 </div>
                 <Form className="form-login form-block">
+                    <Form.Item
+                        name="full_name"
+                        validateStatus={hasError ? "error" : ""}
+                        help={hasError ? "Message error" : null}
+                    >
+                        <Input placeholder="Full name"/>
+                    </Form.Item>
+                    <Form.Item
+                        name="email"
+                        validateStatus={hasError ? "error" : ""}
+                        help={hasError ? "Message error" : null}
+                    >
+                        <Input placeholder="Email"/>
+                    </Form.Item>
+
                     <Form.Item
                         name="username"
                         validateStatus={hasError ? "error" : ""}
                         help={hasError ? "Message error" : null}
                     >
-                        <Input placeholder="Username" prefix={<UserOutlined/>}/>
+                        <Input placeholder="Username"/>
                     </Form.Item>
                     <Form.Item
                         name="Password"
                         validateStatus={hasError ? "error" : ""}
                         help={hasError ? "Message error" : null}
                     >
-                        <Input placeholder="Password" prefix={<LockOutlined/>}/>
+                        <Input placeholder="Password"/>
                     </Form.Item>
+
                 </Form>
 
                 <Button
                     onClick={this.handleSubmit}
                     type="primary"
+                    htmlType="submit"
                     className="form-action"
-                    block>
-                    Login
+                    block
+                >
+                    Register
                 </Button>
                 <div className="form-other">
-                    <Link to={'/register'}>Register</Link>
+                    <Link to={'/login'}>Login</Link>
                 </div>
             </Card>
         );
     }
 }
 
-export default LoginPage
+export default RegisterPage

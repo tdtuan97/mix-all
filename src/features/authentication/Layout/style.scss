@@ -2,9 +2,27 @@
 @import '../../../styles/mixins';
 
 .authentication-layout {
-    .authentication-page-container {
-        margin: 0 auto;
-        width: 50%;
-        padding-top: 48px;
-    }
+     padding-top: 128px;
+     .card-authentication{
+          box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+          .form-block{
+               margin-top: $distanceBlock;
+               &:first-child{
+                    margin-top: 0;
+               }
+          }
+          .form-title{
+               text-align: center;
+               @include set-font($fontSizeTitle, $lineHeightTitle);
+          }
+
+          .form-logo{
+               text-align: center;
+          }
+
+          .form-other{
+               margin-top: $distanceComponent;
+               text-align: right;
+          }
+     }
 }

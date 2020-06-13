@@ -2,7 +2,7 @@
 // Learn more from: http://rekit.js.org/docs/routing.html
 
 import LoginPage from "./LoginPage";
-import RegisterPage from "./Register";
+import RegisterPage from "./RegisterPage";
 import Layout from "./Layout";
 
 export default [
