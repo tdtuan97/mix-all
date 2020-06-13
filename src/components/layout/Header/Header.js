@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import "./style.scss";
-import LogoSpin from "../common/LogoSpin";
+import "./Header.scss";
+import LogoSpin from "../../common/LogoSpin";
 
 class Header extends React.Component {
     constructor(props) {

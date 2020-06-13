@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Logo from "../../../component/common/Logo";
+import Logo from "../../../components/common/Logo";
 import {Link} from "react-router-dom";
 
 import {Input, Button, Card, Form} from 'antd';
