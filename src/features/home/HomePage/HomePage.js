@@ -1,13 +1,16 @@
 import React, {Component} from "react";
-import Header from "../../../components/layout/Header";
-import {Link} from "react-router-dom";
+import {Header} from "../../../components/layout/Header";
+import {Banner} from "./Components";
+
+import './style.scss'
 
 class HomePage extends Component{
     render() {
         return (
             <div className="home-welcome-page">
                 <Header/>
-                <div className="app-intro">
+                <Banner/>
+               {/* <div className="app-intro">
                     <ul>
                         <li>
                             Login page:&nbsp;
@@ -18,7 +21,7 @@ class HomePage extends Component{
                             <Link to="/examples">/examples</Link>
                         </li>
                     </ul>
-                </div>
+                </div>*/}
             </div>
         );
     }
