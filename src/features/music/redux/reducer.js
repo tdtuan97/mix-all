@@ -7,8 +7,17 @@
 // https://medium.com/@nate_wang/a-new-approach-for-managing-redux-actions-91c26ce8b5da.
 
 import initialState from "./initialState";
+import {reducer as loadedAudio} from "./loadedAudio";
+import {reducer as setPlayAudio} from "./setPlayAudio";
+import {reducer as setPauseAudio} from "./setPauseAudio";
+import {reducer as trackingAudio} from "./trackingAudio";
 
-const reducers = [];
+const reducers = [
+    loadedAudio,
+    trackingAudio,
+    setPlayAudio,
+    setPauseAudio,
+];
 
 export default function reducer(state = initialState, action) {
     let newState;

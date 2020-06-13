@@ -12,10 +12,19 @@ import {
 } from "@ant-design/icons";
 
 class AudioPlayer extends Component {
+    secondsToPercent = (seconds = 0, duration = 0) => {
+        if (duration === 0) {
+            return 0
+        }
+        return seconds * 100 / duration;
+    }
+
     render() {
         let {currentAudio} = this.props;
-        let {isPlay, handleTogglePlay, handleChangeSlider} = this.props;
+        let {isPlay, seconds, duration} = this.props;
+        let {handleTogglePlay, handleChangeSlider} = this.props;
         let imagePlayer = require("../../images/player.png");
+        let percents = this.secondsToPercent(seconds, duration);
         return (
             <div className="music-player-container">
                 <Card className="music-player-wrapper">
@@ -31,7 +40,7 @@ class AudioPlayer extends Component {
                         </div>
                     </div>
                     <div className="player-component">
-                        <Slider defaultValue={0} onChange={handleChangeSlider}/>
+                        <Slider value={percents} onChange={handleChangeSlider}/>
                     </div>
                     <div className="player-controller player-component">
                         <div className="controller-action">

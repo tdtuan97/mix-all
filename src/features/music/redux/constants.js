@@ -1,0 +1,4 @@
+export const LOADED_AUDIO = 'LOADED_DATA';
+export const TRACKING_AUDIO = 'TRACKING_PLAYER';
+export const SET_PLAY_AUDIO = 'SET_PLAY_AUDIO';
+export const SET_PAUSE_AUDIO = 'SET_PAUSE_AUDIO';

@@ -6,6 +6,11 @@
 
 // NOTE: initialState constant is necessary so that Rekit could auto add initial state when creating async actions.
 
-const initialState = {};
+const initialState = {
+    isPlay: false,
+    seconds: 0,
+    duration: 0,
+    percentSlider:0
+};
 
 export default initialState;
