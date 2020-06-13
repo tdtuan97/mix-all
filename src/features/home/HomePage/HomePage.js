@@ -8,20 +8,8 @@ class HomePage extends Component{
     render() {
         return (
             <div className="home-welcome-page">
-                <Header/>
+                <Header transparent={true}/>
                 <Banner/>
-               {/* <div className="app-intro">
-                    <ul>
-                        <li>
-                            Login page:&nbsp;
-                            <Link to="/login">/login</Link>
-                        </li>
-                        <li>
-                            To see examples, access:&nbsp;
-                            <Link to="/examples">/examples</Link>
-                        </li>
-                    </ul>
-                </div>*/}
             </div>
         );
     }

@@ -1,29 +1,2 @@
 @import "./src/styles/variables";
 @import "./src/styles/mixins";
-
-$colorHeader: #001529;
-.header {
-    background: rgba(39, 75, 80, 0.2);
-
-    .header-content {
-        .header-menu {
-            .menu-content {
-                .menu-item {
-                    a {
-                        color: $colorWhiteOutFocus;
-
-                        &:hover {
-                            color: $colorWhite;
-                        }
-                    }
-                }
-
-                .menu-item.active {
-                    a {
-                        color: $colorWhite;
-                    }
-                }
-            }
-        }
-    }
-}

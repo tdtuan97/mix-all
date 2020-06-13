@@ -1,22 +1,19 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 import {LogoSpin} from "../../common/LogoSpin";
 import {connect} from 'react-redux';
 
 import "./Header.scss";
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let {router} = this.props;
         let {pathname} = router.location;
-
+        let classHeader = this.props.transparent !== true ? "header" :"header transparent";
         return (
             <header
-                className="header">
+                className={classHeader}>
                 <div className="header-content">
                     <div className="header-logo">
                         <LogoSpin/>
@@ -52,6 +49,10 @@ class Header extends Component {
         )
     }
 }
+
+Header.propTypes = {
+    transparent: PropTypes.bool
+};
 
 function mapStateToProps(state) {
     return {
