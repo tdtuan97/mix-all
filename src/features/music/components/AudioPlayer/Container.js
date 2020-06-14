@@ -21,8 +21,8 @@ class Container extends Component {
         }
     }
 
-    handleOnPlay = (second) => {
-        console.log('handleOnPlay');
+    handleEnded = () => {
+        this.props.setPauseAudio();
     }
 
     handleTimeUpdate = () => {
@@ -47,17 +47,18 @@ class Container extends Component {
     }
 
     componentDidMount() {
-        //this.props.getFileAudio('');
+        let url = 'http://vnso-zn-5-tf-mp3-s1-zmp3.zadn.vn/96fab1a89eef77b12efe/7369862464632933487?authen=exp=1592297437~acl=/96fab1a89eef77b12efe/*~hmac=04960079caf557563cff4e8b97f55fbb'
+        this.props.getAudio(url);
     }
 
     render() {
         let currentAudio = {
             id: 1,
-            title: 'Đêm Trăng Tình Yêu',
+            title: 'Tình Yêu Mang Theo',
             artist: 'Thanh Goll',
-            url: '/',
+            src: 'http://vnso-zn-5-tf-mp3-s1-zmp3.zadn.vn/96fab1a89eef77b12efe/7369862464632933487?authen=exp=1592297437~acl=/96fab1a89eef77b12efe/*~hmac=04960079caf557563cff4e8b97f55fbb',
         }
-        let {isPlay, duration, seconds} = this.props.music;
+        let {isPlay, duration, seconds, src} = this.props.music;
         return (
             <div>
                 <AudioPlayer
@@ -68,13 +69,18 @@ class Container extends Component {
                     handleChangeSlider={this.handleChangeSlider}
                     currentAudio={currentAudio}
                 />
-                <audio
-                    ref="audioRef"
-                    src={require('../../src/DemTrangTinhYeuAcoustic - ThanhGoll.mp3')}
-                    onLoadedData={this.handleLoadedData}
-                    onTimeUpdate={this.handleTimeUpdate}
-                    autoPlay
-                />
+                {
+                    src !== null ?
+                        <audio
+                            ref="audioRef"
+                            src={src}
+                            onLoadedData={this.handleLoadedData}
+                            onTimeUpdate={this.handleTimeUpdate}
+                            onEnded={this.handleEnded}
+                            autoPlay
+                        /> : null
+                }
+
             </div>
 
         );
@@ -90,8 +96,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getFileAudio: (src) => {
-            dispatch(getFileAudio(src))
+        getAudio: (src) => {
+            dispatch(getAudio(src))
         },
         loadedAudio: (initialState) => {
             dispatch(loadedAudio(initialState))

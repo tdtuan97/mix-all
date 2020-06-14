@@ -23,24 +23,3 @@ export function reducer(state, action) {
             return state;
     }
 }
-
-export function getFileAudio(url) {
-    //let config = authStore.getConfigHeader(params);
-    url = 'ftp://127.0.0.1/music/DemTrangTinhYeuAcoustic-ThanhGoll.mp3';
-    console.log(getFileAudio)
-    return dispatch => {
-       // dispatch(processAction.pushProcessAction(process));
-        return axios.get(url, {})
-            .then(response => {
-                dispatch(getAudio);
-                //thenFunction(dispatch, response, GET_ACTION);
-            }).catch(error => {
-                //errorAction.catchFunction(dispatch, error)
-            }).finally(() => {
-               // errorAction.finallyFunction(dispatch, process)
-            });
-
-    }
-
-    //return getAudio(null);
-}
