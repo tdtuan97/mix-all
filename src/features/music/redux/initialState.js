@@ -10,7 +10,8 @@ const initialState = {
     isPlay: false,
     seconds: 0,
     duration: 0,
-    percentSlider:0
+    percentSlider: 0,
+    src: null
 };
 
 export default initialState;

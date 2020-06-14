@@ -7,12 +7,14 @@
 // https://medium.com/@nate_wang/a-new-approach-for-managing-redux-actions-91c26ce8b5da.
 
 import initialState from "./initialState";
+import {reducer as getAudio} from "./getAudio";
 import {reducer as loadedAudio} from "./loadedAudio";
 import {reducer as setPlayAudio} from "./setPlayAudio";
 import {reducer as setPauseAudio} from "./setPauseAudio";
 import {reducer as trackingAudio} from "./trackingAudio";
 
 const reducers = [
+    getAudio,
     loadedAudio,
     trackingAudio,
     setPlayAudio,

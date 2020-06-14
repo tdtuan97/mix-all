@@ -2,7 +2,8 @@ import React, {Component} from "react";
 
 import AudioPlayer from "./AudioPlayer";
 import {connect} from "react-redux";
-import {loadedAudio, setPauseAudio, setPlayAudio, trackingAudio} from "../../redux/actions";
+import {getAudio, loadedAudio, setPauseAudio, setPlayAudio, trackingAudio} from "../../redux/actions";
+import {getFileAudio} from "../../redux/getAudio";
 
 class Container extends Component {
     constructor(props) {
@@ -45,6 +46,10 @@ class Container extends Component {
         console.log(value);
     }
 
+    componentDidMount() {
+        //this.props.getFileAudio('');
+    }
+
     render() {
         let currentAudio = {
             id: 1,
@@ -85,6 +90,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        getFileAudio: (src) => {
+            dispatch(getFileAudio(src))
+        },
         loadedAudio: (initialState) => {
             dispatch(loadedAudio(initialState))
         },
