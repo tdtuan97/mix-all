@@ -1,4 +1,3 @@
-import axios from "axios";
 import {GET_AUDIO} from "./constants";
 
 export function getAudio(src) {

@@ -12,6 +12,7 @@ import {reducer as loadedAudio} from "./loadedAudio";
 import {reducer as setPlayAudio} from "./setPlayAudio";
 import {reducer as setPauseAudio} from "./setPauseAudio";
 import {reducer as trackingAudio} from "./trackingAudio";
+import {reducer as setSeconds} from "./setSeconds";
 
 const reducers = [
     getAudio,
@@ -19,6 +20,7 @@ const reducers = [
     trackingAudio,
     setPlayAudio,
     setPauseAudio,
+    setSeconds,
 ];
 
 export default function reducer(state = initialState, action) {

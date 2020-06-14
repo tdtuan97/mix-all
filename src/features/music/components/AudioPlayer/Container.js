@@ -3,19 +3,15 @@ import React, {Component} from "react";
 import AudioPlayer from "./AudioPlayer";
 import {connect} from "react-redux";
 import {getAudio, loadedAudio, setPauseAudio, setPlayAudio, trackingAudio} from "../../redux/actions";
+import {setSeconds} from "../../redux/setSeconds";
 
 class Container extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     handleTogglePlay = () => {
         let music = this.props.music;
         if (music.isPlay) {
-            this.refs.audioRef.pause();
-            this.props.setPauseAudio()
+            this.props.setPauseAudio();
         } else {
-            this.refs.audioRef.play();
             this.props.setPlayAudio();
         }
     }
@@ -41,13 +37,25 @@ class Container extends Component {
         this.props.loadedAudio(initialState);
     }
 
-    handleChangeSlider = (value) => {
-        console.log(value);
+    handleChangeSlider = (seconds) => {
+        this.refs.audioRef.currentTime = seconds;
+        this.props.setSeconds(seconds);
     }
 
     componentDidMount() {
         let url = 'http://vnso-zn-5-tf-mp3-s1-zmp3.zadn.vn/96fab1a89eef77b12efe/7369862464632933487?authen=exp=1592297437~acl=/96fab1a89eef77b12efe/*~hmac=04960079caf557563cff4e8b97f55fbb'
         this.props.getAudio(url);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps !== this.props) {
+            let music = this.props.music;
+            if (music.isPlay) {
+                this.refs.audioRef.play();
+            } else {
+                this.refs.audioRef.pause();
+            }
+        }
     }
 
     render() {
@@ -109,6 +117,9 @@ function mapDispatchToProps(dispatch) {
         },
         setPauseAudio: () => {
             dispatch(setPauseAudio())
+        },
+        setSeconds: (seconds) => {
+            dispatch(setSeconds(seconds))
         },
     }
 }
