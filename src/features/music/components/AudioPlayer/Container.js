@@ -3,7 +3,6 @@ import React, {Component} from "react";
 import AudioPlayer from "./AudioPlayer";
 import {connect} from "react-redux";
 import {getAudio, loadedAudio, setPauseAudio, setPlayAudio, trackingAudio} from "../../redux/actions";
-import {getFileAudio} from "../../redux/getAudio";
 
 class Container extends Component {
     constructor(props) {

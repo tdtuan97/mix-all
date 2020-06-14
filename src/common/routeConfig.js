@@ -1,5 +1,5 @@
 import _ from "lodash";
-import {default as App} from "../App";
+import {default as AppRoot} from "../AppRoot";
 import {PageNotFound} from "../features/common";
 import authenticationRoute from "../features/authentication/route";
 
@@ -20,7 +20,7 @@ const childRoutes = [
 
 const routes = [{
     path: "/",
-    component: App,
+    component: AppRoot,
     childRoutes: [
         ...childRoutes, ...authenticationRoute,
         {path: "*", name: "Page not found", component: PageNotFound}

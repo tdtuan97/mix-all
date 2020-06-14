@@ -1,4 +1,3 @@
-import './style.scss';
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {Card, Slider} from "antd";
