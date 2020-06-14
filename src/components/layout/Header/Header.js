@@ -4,26 +4,7 @@ import PropTypes from 'prop-types';
 import {LogoSpin} from "../../common/LogoSpin";
 import {connect} from 'react-redux';
 
-import "./Header.scss";
-import {scopeSpotify} from "../../../features/music/redux/actions";
-
 class Header extends Component {
-   /* getUrlLoginSpotify = () => {
-        let config = {
-            client_id: 'e3e5c1773e2d42ba92b05dd84f9c7249',
-            client_secret: '1c326c5e080449e2bb296f158ddf4453',
-            redirect_uri: 'http://localhost:3000/music',
-            show_dialog: true
-        }
-
-        let scopes = 'user-modify-playback-state';
-        let url = 'https://accounts.spotify.com/authorize' +
-            '?response_type=code' +
-            '&client_id=' + config.client_id +
-            (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-            '&redirect_uri=' + config.redirect_uri;
-        return url;
-    }*/
 
     render() {
         let {router} = this.props;
@@ -60,10 +41,6 @@ class Header extends Component {
                             <li className="menu-item">
                                 <Link to='/register'>Register</Link>
                             </li>
-                           {/* <li className="menu-item">
-                                <a target='_blank' href={this.getUrlLoginSpotify()}>Login with
-                                    Spotify</a>
-                            </li>*/}
                         </ul>
                     </div>
                 </div>
@@ -85,9 +62,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        scopeSpotify: () => {
-            dispatch(scopeSpotify())
-        }
+
     }
 }
 
