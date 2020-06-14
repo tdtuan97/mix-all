@@ -1,7 +1,6 @@
-import './style.scss';
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
-import {AudioPlayer} from "../components/AudioPlayer";
+import {AudioPlayer} from "../../components/AudioPlayer";
 
 class HomePage extends Component {
     constructor(props) {

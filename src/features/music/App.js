@@ -1,11 +1,9 @@
 import React, {Component} from "react";
-import {Header} from "../../../components/layout/Header";
+import {Header} from "../../components/layout/Header";
 
-import './style.scss'
-
-class Layout extends Component{
+class App extends Component{
     render() {
-        let musicBackground = require("../images/background.jpg");
+        let musicBackground = require("./images/background.jpg");
         return (
             <div className="music-layout" style={{ backgroundImage: `url(${musicBackground})` }}>
                 <Header transparent={true}/>
@@ -15,4 +13,4 @@ class Layout extends Component{
     }
 }
 
-export default Layout
+export default App

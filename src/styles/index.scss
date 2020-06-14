@@ -1,4 +1,7 @@
 // index is the entry for all styles.
 @import './global';
+
 @import '../features/common/style';
 @import '../features/examples/style';
+@import '../features/home/style';
+@import '../features/music/style';

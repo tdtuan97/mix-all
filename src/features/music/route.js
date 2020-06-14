@@ -1,8 +1,8 @@
 import {HomePage} from "./";
-import {Layout} from "./";
+import {App} from "./";
 
 export default {
     path: "music",
-    component: Layout,
+    component: App,
     childRoutes: [{path: "home", component: HomePage, isIndex: true}]
 };

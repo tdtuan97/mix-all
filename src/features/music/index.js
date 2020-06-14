@@ -1,2 +1,2 @@
-export {HomePage} from "./HomePage";
-export {Layout} from "./Layout";
+export {HomePage} from "./views/HomePage";
+export {default as App} from "./App";

@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import './banner.scss';
 import {Button} from "antd";
 
 class Banner extends Component{
