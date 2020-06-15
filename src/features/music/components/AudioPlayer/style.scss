@@ -57,12 +57,27 @@
 
             .player-description {
                 color: $colorWhite;
-
+                font-weight: 600;
                 .description {
                     margin-bottom: $distanceComponent;
 
                     &:last-child {
                         margin-bottom: 0;
+                    }
+                }
+            }
+
+            .player-slider{
+                .ant-slider{
+                    .ant-slider-track{
+                        @include box-shadow-default();
+                    }
+                    .ant-slider-handle{
+                        @include box-shadow-default();
+                        &:hover{
+                            border-color: $colorPrimary;
+                            background-color: $colorPrimary;
+                        }
                     }
                 }
             }

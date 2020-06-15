@@ -8,3 +8,7 @@
     color: $fontColor;
     line-height: $lineHeight;
 }
+
+@mixin box-shadow-default($color: rgba(50, 250, 255, .75)){
+    box-shadow: 0 0 10px $color;
+}
