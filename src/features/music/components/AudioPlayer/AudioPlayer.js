@@ -12,16 +12,50 @@ import {
 
 class AudioPlayer extends Component {
 
+    formatTimeDuration = (seconds) => {
+        return this.formatTime(seconds);
+    }
+
+    formatTime = (seconds) => {
+        let minutes = Math.floor((seconds) / 60);
+        seconds = seconds - (minutes * 60);
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        return minutes + ':' + seconds;
+    }
+
     render() {
         let {currentAudio} = this.props;
-        let {isPlay, seconds, duration, percents} = this.props;
+        let {isPlay, seconds, duration, status} = this.props;
         let {handleTogglePlay, handleChangeSlider} = this.props;
         let imagePlayer = require("../../images/player.png");
+        let playerImageClass;
+        switch (status) {
+            case 'playing':
+                playerImageClass = "player-image playing"
+                break;
+            case 'paused':
+                playerImageClass = "player-image paused"
+                break;
+            case 'stopped':
+                playerImageClass = "player-image stopped"
+                break;
+            default:
+                playerImageClass = "player-image"
+                break;
+        }
+
         return (
-            <div className="music-player-container">
+            <div className="music-player-presentational">
                 <Card className="music-player-wrapper">
                     <div className="player-image-component player-component">
-                        <img className="player-image" src={imagePlayer} alt="player"/>
+                        <img className={playerImageClass}
+                             src={imagePlayer}
+                             alt="player"/>
                     </div>
                     <div className="player-description player-component">
                         <div className="player-title description">
@@ -31,15 +65,13 @@ class AudioPlayer extends Component {
                             {currentAudio.artist}
                         </div>
                     </div>
-                   {/* <div className="player-component">
-                        <Slider value={percents} onChange={handleChangeSlider}/>
-                    </div>*/}
-                    <div className="player-component">
+                    <div className="player-slider player-component">
                         <Slider
                             value={seconds}
                             onChange={handleChangeSlider}
                             min={0}
                             max={duration}
+                            tipFormatter={this.formatTimeDuration}
                         />
                     </div>
                     <div className="player-controller player-component">

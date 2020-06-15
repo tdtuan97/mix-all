@@ -1,8 +1,8 @@
-import {SET_SECONDS} from "./constants";
+import {SCROLL_BEHAVIOR} from "./constants";
 
-export function setSeconds(seconds) {
+export function scrollBehavior(seconds) {
     return {
-        type: SET_SECONDS,
+        type: SCROLL_BEHAVIOR,
         payload: {
             seconds: seconds
         }
@@ -12,7 +12,7 @@ export function setSeconds(seconds) {
 export function reducer(state, action) {
     let payload = action.payload;
     switch (action.type) {
-        case SET_SECONDS:
+        case SCROLL_BEHAVIOR:
             return {
                 ...state,
                 seconds: payload.seconds

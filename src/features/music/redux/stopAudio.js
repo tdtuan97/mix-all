@@ -1,17 +1,18 @@
-import {SET_PLAY_AUDIO} from "./constants";
+import {STOP_AUDIO} from "./constants";
 
-export function setPlayAudio() {
+export function stopAudio() {
     return {
-        type: SET_PLAY_AUDIO
+        type: STOP_AUDIO
     };
 }
 
 export function reducer(state, action) {
     switch (action.type) {
-        case SET_PLAY_AUDIO:
+        case STOP_AUDIO:
             return {
                 ...state,
-                isPlay: true,
+                status: 'stopped',
+                isPlay: false,
             };
 
         default:

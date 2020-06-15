@@ -2,13 +2,10 @@
     width: 100%;
     min-height: 100%;
     position: absolute;
-    text-align: center;
-    border-color: #666;
     background-size: cover;
-    background-attachment: fixed;
     background-position: center;
     .music-container{
-        margin: 96px 0;
+        padding-top: 9%;
         width: 100%;
         color: $colorWhite;
     }

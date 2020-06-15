@@ -2,22 +2,30 @@ import React, {Component} from "react";
 
 import AudioPlayer from "./AudioPlayer";
 import {connect} from "react-redux";
-import {getAudio, loadedAudio, setPauseAudio, setPlayAudio, trackingAudio} from "../../redux/actions";
-import {setSeconds} from "../../redux/setSeconds";
+import {
+    getAudio,
+    loadAudio,
+    playAudio,
+    pauseAudio,
+    stopAudio,
+    scrollBehavior,
+    trackingAudio
+} from "../../redux/actions";
 
 class Container extends Component {
 
     handleTogglePlay = () => {
         let music = this.props.music;
         if (music.isPlay) {
-            this.props.setPauseAudio();
+            this.props.pauseAudio();
         } else {
-            this.props.setPlayAudio();
+            this.props.playAudio();
         }
     }
 
     handleEnded = () => {
-        this.props.setPauseAudio();
+        this.refs.audioRef.currentTime = 0;
+        this.props.stopAudio();
     }
 
     handleTimeUpdate = () => {
@@ -27,19 +35,22 @@ class Container extends Component {
 
     handleLoadedData = () => {
         let duration = this.refs.audioRef.duration;
-        let isPlay = !this.refs.audioRef.paused
+        let isPlay = !this.refs.audioRef.paused;
+        let status = isPlay ? 'playing' : null;
         let initialState = {
+            status: status,
             isPlay: isPlay,
             seconds: 0,
             duration: duration,
             percentSlider: 0
         };
-        this.props.loadedAudio(initialState);
+
+        this.props.loadAudio(initialState);
     }
 
     handleChangeSlider = (seconds) => {
         this.refs.audioRef.currentTime = seconds;
-        this.props.setSeconds(seconds);
+        this.props.scrollBehavior(seconds);
     }
 
     componentDidMount() {
@@ -50,10 +61,18 @@ class Container extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps !== this.props) {
             let music = this.props.music;
-            if (music.isPlay) {
-                this.refs.audioRef.play();
-            } else {
-                this.refs.audioRef.pause();
+            switch (music.status) {
+                case 'playing':
+                    this.refs.audioRef.play();
+                    break;
+                case 'paused':
+                    this.refs.audioRef.pause();
+                    break;
+                case 'stopped':
+                    this.refs.audioRef.pause();
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -65,16 +84,17 @@ class Container extends Component {
             artist: 'Thanh Goll',
             src: 'http://vnso-zn-5-tf-mp3-s1-zmp3.zadn.vn/96fab1a89eef77b12efe/7369862464632933487?authen=exp=1592297437~acl=/96fab1a89eef77b12efe/*~hmac=04960079caf557563cff4e8b97f55fbb',
         }
-        let {isPlay, duration, seconds, src} = this.props.music;
+        let {status, isPlay, duration, seconds, src} = this.props.music;
         return (
-            <div>
+            <div className="music-player-container">
                 <AudioPlayer
+                    status={status}
                     isPlay={isPlay}
                     duration={duration}
                     seconds={seconds}
+                    currentAudio={currentAudio}
                     handleTogglePlay={this.handleTogglePlay}
                     handleChangeSlider={this.handleChangeSlider}
-                    currentAudio={currentAudio}
                 />
                 {
                     src !== null ?
@@ -106,20 +126,23 @@ function mapDispatchToProps(dispatch) {
         getAudio: (src) => {
             dispatch(getAudio(src))
         },
-        loadedAudio: (initialState) => {
-            dispatch(loadedAudio(initialState))
+        loadAudio: (initialState) => {
+            dispatch(loadAudio(initialState))
+        },
+        playAudio: () => {
+            dispatch(playAudio())
+        },
+        pauseAudio: () => {
+            dispatch(pauseAudio())
+        },
+        stopAudio: (seconds) => {
+            dispatch(stopAudio(seconds))
         },
         trackingAudio: (seconds) => {
             dispatch(trackingAudio(seconds))
         },
-        setPlayAudio: () => {
-            dispatch(setPlayAudio())
-        },
-        setPauseAudio: () => {
-            dispatch(setPauseAudio())
-        },
-        setSeconds: (seconds) => {
-            dispatch(setSeconds(seconds))
+        scrollBehavior: (seconds) => {
+            dispatch(scrollBehavior(seconds))
         },
     }
 }
