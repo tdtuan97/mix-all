@@ -1,5 +1,7 @@
 'use strict';
 
+const API_URL = 'http://localhost:8080/api/v1'
+
 const fs = require('fs');
 const path = require('path');
 const paths = require('./paths');

@@ -7,6 +7,9 @@
 // https://medium.com/@nate_wang/a-new-approach-for-managing-redux-actions-91c26ce8b5da.
 
 import initialState from "./initialState";
+
+import {reducer as getListAudio} from "./getListAudio";
+
 import {reducer as getAudio} from "./getAudio";
 import {reducer as loadAudio} from "./loadAudio";
 import {reducer as playAudio} from "./playAudio";
@@ -16,6 +19,8 @@ import {reducer as trackingAudio} from "./trackingAudio";
 import {reducer as scrollBehavior} from "./scrollBehavior";
 
 const reducers = [
+    getListAudio,
+
     getAudio,
     loadAudio,
     trackingAudio,

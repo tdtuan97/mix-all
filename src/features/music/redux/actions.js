@@ -1,3 +1,7 @@
+//Reducer Home page
+
+export {getListAudio} from "./getListAudio";
+//Reducer audio player
 export {getAudio} from "./getAudio";
 export {loadAudio} from "./loadAudio";
 export {playAudio} from "./playAudio";

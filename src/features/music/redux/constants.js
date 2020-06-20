@@ -1,3 +1,6 @@
+
+export const GET_LIST_AUDIO = 'GET_LIST_AUDIO';
+
 export const GET_AUDIO = 'GET_AUDIO';
 export const LOAD_AUDIO = 'LOAD_AUDIO';
 export const TRACKING_AUDIO = 'TRACKING_PLAYER';

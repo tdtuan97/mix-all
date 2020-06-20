@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import HomePage from "./HomePage";
 import {connect} from "react-redux";
+import {getListAudio} from "../../redux/actions";
 
 class Container extends Component {
     render() {
@@ -33,6 +34,10 @@ class Container extends Component {
             />
         );
     }
+
+    componentDidMount() {
+        this.props.getListAudio()
+    }
 }
 
 function mapStateToProps(state) {
@@ -42,7 +47,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {}
+    return {
+        getListAudio: () => {
+            dispatch(getListAudio())
+        }
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container)
