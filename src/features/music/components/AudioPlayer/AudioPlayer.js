@@ -31,7 +31,12 @@ class AudioPlayer extends Component {
     render() {
         let {currentAudio} = this.props;
         let {isPlay, seconds, duration, status} = this.props;
-        let {handleTogglePlay, handleChangeSlider} = this.props;
+        let {
+            handleTogglePlay,
+            handleChangeSlider,
+            handleGetNextAudio,
+            handleGetPreviousAudio,
+        } = this.props;
         let imagePlayer = require("../../images/player.png");
         let playerImageClass;
         switch (status) {
@@ -75,7 +80,7 @@ class AudioPlayer extends Component {
                         />
                     </div>
                     <div className="player-controller player-component">
-                        <div className="controller-action">
+                        <div className="controller-action" onClick={handleGetPreviousAudio}>
                             <FastBackwardOutlined className="action-icon"/>
                         </div>
                         <div className="controller-action">
@@ -91,7 +96,7 @@ class AudioPlayer extends Component {
                         <div className="controller-action">
                             <ForwardOutlined className="action-icon"/>
                         </div>
-                        <div className="controller-action">
+                        <div className="controller-action" onClick={handleGetNextAudio}>
                             <FastForwardOutlined className="action-icon"/>
                         </div>
                     </div>

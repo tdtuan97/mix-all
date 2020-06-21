@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import _ from "lodash";
 
 import AudioPlayer from "./AudioPlayer";
 import {connect} from "react-redux";
@@ -21,6 +22,50 @@ class Container extends Component {
         } else {
             this.props.playAudio();
         }
+    }
+
+    handleGetNextAudio = () => {
+        let music = this.props.music;
+        let {listAudio, currentAudio} = music;
+        let nextAudio = this.getNextItem(listAudio, currentAudio);
+        if (!_.isEmpty(nextAudio)) {
+            this.props.setCurrentAudio(nextAudio);
+        }
+    }
+
+    getNextItem = (array, item) => {
+        let index = array.indexOf(item);
+        let length = array.length;
+        if (index !== -1) {
+            let nextIndex = index + 1;
+            if (nextIndex === length) {
+                nextIndex = 0;
+            }
+            return array[nextIndex];
+        }
+        return null;
+    }
+
+    handleGetPreviousAudio = () => {
+        let music = this.props.music;
+        let {listAudio, currentAudio} = music;
+        let previousAudio = this.getPreviousItem(listAudio, currentAudio);
+        if (!_.isEmpty(previousAudio)) {
+            this.props.setCurrentAudio(previousAudio);
+        }
+    }
+
+    getPreviousItem = (array, item) => {
+        let index = array.indexOf(item);
+        let length = array.length;
+        if (index !== -1) {
+            let previousIndex = index - 1;
+            if (previousIndex === -1) {
+                previousIndex = length - 1;
+            }
+            return array[previousIndex];
+        }
+        return null;
     }
 
     handleEnded = () => {
@@ -85,6 +130,8 @@ class Container extends Component {
                     currentAudio={currentAudio}
                     handleTogglePlay={this.handleTogglePlay}
                     handleChangeSlider={this.handleChangeSlider}
+                    handleGetNextAudio={this.handleGetNextAudio}
+                    handleGetPreviousAudio={this.handleGetPreviousAudio}
                 />
                 {
                     currentAudio.url !== null ?
@@ -131,8 +178,8 @@ function mapDispatchToProps(dispatch) {
         scrollBehavior: (seconds) => {
             dispatch(scrollBehavior(seconds))
         },
-        setCurrentAudio: () => {
-            dispatch(setCurrentAudio())
+        setCurrentAudio: (currentAudio) => {
+            dispatch(setCurrentAudio(currentAudio))
         },
     }
 }
