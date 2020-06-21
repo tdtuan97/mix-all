@@ -1,9 +1,9 @@
 {
-  "main.css": "/redux-react/static/css/main.570a44f5.chunk.css",
-  "main.js": "/redux-react/static/js/main.83725963.chunk.js",
-  "main.js.map": "/redux-react/static/js/main.83725963.chunk.js.map",
-  "static/js/1.e265353f.chunk.js": "/redux-react/static/js/1.e265353f.chunk.js",
-  "static/js/1.e265353f.chunk.js.map": "/redux-react/static/js/1.e265353f.chunk.js.map",
+  "main.css": "/redux-react/static/css/main.6f3ea48c.chunk.css",
+  "main.js": "/redux-react/static/js/main.925133a6.chunk.js",
+  "main.js.map": "/redux-react/static/js/main.925133a6.chunk.js.map",
+  "static/js/1.508ed8ca.chunk.js": "/redux-react/static/js/1.508ed8ca.chunk.js",
+  "static/js/1.508ed8ca.chunk.js.map": "/redux-react/static/js/1.508ed8ca.chunk.js.map",
   "runtime~main.js": "/redux-react/static/js/runtime~main.f7792b03.js",
   "runtime~main.js.map": "/redux-react/static/js/runtime~main.f7792b03.js.map",
   "static/media/logo.png": "/redux-react/static/media/logo.65f270d7.png",
@@ -11,8 +11,8 @@
   "static/media/banner_title.png": "/redux-react/static/media/banner_title.f1dd3d62.png",
   "static/media/player.png": "/redux-react/static/media/player.65f270d7.png",
   "static/media/background.jpg": "/redux-react/static/media/background.79906b22.jpg",
-  "static/css/main.570a44f5.chunk.css.map": "/redux-react/static/css/main.570a44f5.chunk.css.map",
+  "static/css/main.6f3ea48c.chunk.css.map": "/redux-react/static/css/main.6f3ea48c.chunk.css.map",
   "index.html": "/redux-react/index.html",
-  "precache-manifest.3cc2eea1f808f027f2ed3c897295c607.js": "/redux-react/precache-manifest.3cc2eea1f808f027f2ed3c897295c607.js",
+  "precache-manifest.53e5f0e9b663571709385ad4d6a61a80.js": "/redux-react/precache-manifest.53e5f0e9b663571709385ad4d6a61a80.js",
   "service-worker.js": "/redux-react/service-worker.js"
 }
