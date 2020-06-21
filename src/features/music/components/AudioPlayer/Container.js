@@ -68,9 +68,20 @@ class Container extends Component {
         return null;
     }
 
+    isLastItem = (array, item) => {
+        let index = array.indexOf(item);
+        let length = array.length;
+        return !(index !== -1 && index < (length - 1));
+    }
+
     handleEnded = () => {
         this.refs.audioRef.currentTime = 0;
-        this.props.stopAudio();
+        let music = this.props.music;
+        let {listAudio, currentAudio, typeLoop} = music;
+        if (this.isLastItem(listAudio, currentAudio) && typeLoop === 'none') {
+            this.props.stopAudio();
+        }
+        this.handleGetNextAudio();
     }
 
     handleTimeUpdate = () => {

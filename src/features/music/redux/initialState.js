@@ -8,6 +8,7 @@
 
 const initialState = {
     isPlay: false,
+    typeLoop: 'list',
     status: null,
     seconds: 0,
     duration: 0,
