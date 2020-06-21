@@ -7,13 +7,17 @@
 // NOTE: initialState constant is necessary so that Rekit could auto add initial state when creating async actions.
 
 const initialState = {
-    status: null,
     isPlay: false,
+    status: null,
     seconds: 0,
     duration: 0,
     percentSlider: 0,
-    list: [],
-    src: 'http://vnso-zn-5-tf-mp3-s1-zmp3.zadn.vn/96fab1a89eef77b12efe/7369862464632933487?authen=exp=1592297437~acl=/96fab1a89eef77b12efe/*~hmac=04960079caf557563cff4e8b97f55fbb'
+    listAudio: [],
+    currentAudio: {
+        title: '',
+        artist: '',
+        url: '',
+    },
 };
 
 export default initialState;

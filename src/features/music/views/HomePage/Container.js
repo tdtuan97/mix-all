@@ -2,47 +2,34 @@ import React, {Component} from "react";
 
 import HomePage from "./HomePage";
 import {connect} from "react-redux";
-import {getListAudio} from "../../redux/actions";
+import {setCurrentAudio, getListAudio} from "../../redux/actions";
+import _ from "lodash";
 
 class Container extends Component {
     render() {
-        let arrayAudio = [
-            {
-                id: 1,
-                title: 'Đêm Trăng Tình Yêu',
-                artist: 'Thanh Goll',
-                url: '/',
-            },
-            {
-                id: 2,
-                title: 'Tình Yêu Mang Theo',
-                artist: 'Thanh Goll',
-                url: '/',
-            },
-            {
-                id: 3,
-                title: 'Cánh Chim Hải Âu',
-                artist: 'Thanh Goll',
-                url: '/',
-            }
-        ];
-
         return (
-            <HomePage
-                {...this.props}
-                arrayAudio={arrayAudio}
-            />
+            <HomePage/>
         );
     }
 
     componentDidMount() {
-        this.props.getListAudio()
+        this.props.getListAudio();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        let currentMusic = this.props.music;
+        if (prevProps.music.listAudio !== currentMusic.listAudio) {
+            if (!_.isEmpty(currentMusic.listAudio)) {
+                this.props.setCurrentAudio(currentMusic.listAudio[0])
+            }
+        }
     }
 }
 
 function mapStateToProps(state) {
     return {
-        router: state.router
+        router: state.router,
+        music: state.music,
     }
 }
 
@@ -50,7 +37,10 @@ function mapDispatchToProps(dispatch) {
     return {
         getListAudio: () => {
             dispatch(getListAudio())
-        }
+        },
+        setCurrentAudio: (currentAudio) => {
+            dispatch(setCurrentAudio(currentAudio))
+        },
     }
 }
 

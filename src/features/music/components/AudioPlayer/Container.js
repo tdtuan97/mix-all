@@ -3,13 +3,13 @@ import React, {Component} from "react";
 import AudioPlayer from "./AudioPlayer";
 import {connect} from "react-redux";
 import {
-    getAudio,
     loadAudio,
     playAudio,
     pauseAudio,
     stopAudio,
     scrollBehavior,
-    trackingAudio
+    trackingAudio,
+    setCurrentAudio
 } from "../../redux/actions";
 
 class Container extends Component {
@@ -53,14 +53,10 @@ class Container extends Component {
         this.props.scrollBehavior(seconds);
     }
 
-    componentDidMount() {
-        let url = 'http://vnso-zn-5-tf-mp3-s1-zmp3.zadn.vn/96fab1a89eef77b12efe/7369862464632933487?authen=exp=1592297437~acl=/96fab1a89eef77b12efe/*~hmac=04960079caf557563cff4e8b97f55fbb'
-        this.props.getAudio(url);
-    }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps !== this.props) {
             let music = this.props.music;
+
             switch (music.status) {
                 case 'playing':
                     this.refs.audioRef.play();
@@ -78,13 +74,7 @@ class Container extends Component {
     }
 
     render() {
-        let currentAudio = {
-            id: 1,
-            title: 'Tình Yêu Mang Theo',
-            artist: 'Thanh Goll',
-            src: 'http://vnso-zn-5-tf-mp3-s1-zmp3.zadn.vn/96fab1a89eef77b12efe/7369862464632933487?authen=exp=1592297437~acl=/96fab1a89eef77b12efe/*~hmac=04960079caf557563cff4e8b97f55fbb',
-        }
-        let {status, isPlay, duration, seconds, src} = this.props.music;
+        let {status, isPlay, duration, seconds, currentAudio} = this.props.music;
         return (
             <div className="music-player-container">
                 <AudioPlayer
@@ -97,10 +87,10 @@ class Container extends Component {
                     handleChangeSlider={this.handleChangeSlider}
                 />
                 {
-                    src !== null ?
+                    currentAudio.url !== null ?
                         <audio
                             ref="audioRef"
-                            src={src}
+                            src={currentAudio.url}
                             onLoadedData={this.handleLoadedData}
                             onTimeUpdate={this.handleTimeUpdate}
                             onEnded={this.handleEnded}
@@ -123,9 +113,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getAudio: (src) => {
-            dispatch(getAudio(src))
-        },
         loadAudio: (initialState) => {
             dispatch(loadAudio(initialState))
         },
@@ -143,6 +130,9 @@ function mapDispatchToProps(dispatch) {
         },
         scrollBehavior: (seconds) => {
             dispatch(scrollBehavior(seconds))
+        },
+        setCurrentAudio: () => {
+            dispatch(setCurrentAudio())
         },
     }
 }

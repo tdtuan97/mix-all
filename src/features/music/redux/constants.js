@@ -1,5 +1,6 @@
 
 export const GET_LIST_AUDIO = 'GET_LIST_AUDIO';
+export const SET_CURRENT_AUDIO = 'SET_CURRENT_AUDIO';
 
 export const GET_AUDIO = 'GET_AUDIO';
 export const LOAD_AUDIO = 'LOAD_AUDIO';

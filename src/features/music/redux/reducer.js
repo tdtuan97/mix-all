@@ -9,8 +9,8 @@
 import initialState from "./initialState";
 
 import {reducer as getListAudio} from "./getListAudio";
+import {reducer as setCurrentAudio} from "./setCurrentAudio";
 
-import {reducer as getAudio} from "./getAudio";
 import {reducer as loadAudio} from "./loadAudio";
 import {reducer as playAudio} from "./playAudio";
 import {reducer as pauseAudio} from "./pauseAudio";
@@ -20,8 +20,8 @@ import {reducer as scrollBehavior} from "./scrollBehavior";
 
 const reducers = [
     getListAudio,
+    setCurrentAudio,
 
-    getAudio,
     loadAudio,
     trackingAudio,
     playAudio,

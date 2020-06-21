@@ -17,8 +17,4 @@ class HomePage extends Component {
     }
 }
 
-HomePage.propTypes = {
-    arrayAudio: PropTypes.array,
-};
-
 export default HomePage
