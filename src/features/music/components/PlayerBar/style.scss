@@ -1,0 +1,201 @@
+.player-bar-container {
+    .player-bar-presentational {
+        background: $colorGray;
+        width: 100%;
+        z-index: 9999;
+        position: fixed;
+        bottom: 0;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .1);
+        text-align: left;
+        color: beige;
+
+        .player-bar-wrapper {
+            border: none;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+            max-width: 1200px;
+            position: relative;
+            margin: auto;
+            height: 70px;
+            display: flex;
+
+            .bar-component{
+                padding: 0 $distanceComponent;
+                display: flex;
+            }
+
+            .bar-controller {
+                padding-top: 19px;
+
+                .bar-action {
+                    padding: 0 $distanceComponent;
+                    height: 32px;
+
+                    .action-icon {
+                        font-size: 32px;
+                        cursor: pointer;
+                        transition: color .3s;
+
+                        &:hover {
+                            color: rgba(50, 250, 255, .75);
+
+                            svg {
+                                fill: rgba(50, 250, 255, 0.75);
+                                -webkit-filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
+                                filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .bar-main {
+                .bar-main-image {
+                    padding-top: 5px;
+                    img {
+                        height: 60px;
+                        width: 60px;
+                        border-radius: 50%;
+                        object-fit: contain;
+                        object-position: center;
+
+                        vertical-align: middle;
+                        display: inline-block;
+                    }
+                }
+
+                .bar-main-group-slider {
+                    .bar-main-description {
+                        .content-description {
+                            display: inline-block;
+
+                            .title-audio {
+                                display: inline-block;
+                            }
+
+                            .artist-audio {
+                                display: inline-block;
+                            }
+                        }
+
+                        .timer-description {
+                            display: inline-block;
+
+                            .current-time {
+                                display: inline-block;
+                            }
+
+                            .total-time {
+                                display: inline-block;
+                            }
+                        }
+                    }
+
+                    .ant-slider {
+                        .ant-slider-track {
+                            @include box-shadow-default();
+                        }
+
+                        .ant-slider-handle {
+                            @include box-shadow-default();
+
+                            &:hover {
+                                border-color: $colorPrimary;
+                                background-color: $colorPrimary;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+            .bar-other {
+                padding-top: $distanceComponent;
+                .button-toggle-current-playlist{
+                    border-left: solid 1px rgba(255,255,255,.2);
+                    padding: 5px 0 5px 20px;
+
+                    background-color: rgba(219,219,219,.05);
+                    border-radius: 3px;
+                    height: 36px;
+                    width: 170px;
+                    line-height: 35px;
+                    border: 1px solid transparent;
+                    position: relative;
+                    text-align: center;
+                    .icon-playlist{
+                        position: absolute;
+                    }
+                }
+            }
+
+            .player-description {
+                color: $colorWhite;
+                font-weight: 600;
+
+                .description {
+                    margin-bottom: $distanceComponent;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .player-slider {
+
+            }
+
+            .player-controller {
+                .controller-action {
+                    display: inline-block;
+                    padding: 0 6px;
+                    height: 32px;
+
+                    .action-icon {
+                        font-size: 32px;
+                        line-height: 32px;
+                        cursor: pointer;
+                        transition: color .3s;
+
+                        &:hover {
+                            color: rgba(50, 250, 255, .75);
+
+                            svg {
+                                fill: rgba(50, 250, 255, 0.75);
+                                -webkit-filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
+                                filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.player-bar-presentational.transparent {
+    background: rgba(39, 75, 80, 0.2);
+
+    .header-content {
+        .header-menu {
+            .menu-content {
+                .menu-item {
+                    a {
+                        color: $colorWhiteOutFocus;
+
+                        &:hover {
+                            color: $colorWhite;
+                        }
+                    }
+                }
+
+                .menu-item.active {
+                    a {
+                        color: $colorWhite;
+                    }
+                }
+            }
+        }
+    }
+}
