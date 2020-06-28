@@ -67,16 +67,22 @@ class PlayerBar extends Component {
                                     <div className="title-audio">
                                         {currentAudio.title}
                                     </div>
+                                    <div className="space-content">
+                                        -
+                                    </div>
                                     <div className="artist-audio">
                                         {currentAudio.artist}
                                     </div>
                                 </div>
                                 <div className="timer-description">
                                     <div className="current-time">
-                                        00:00
+                                        00
+                                    </div>
+                                    <div className="space-time">
+                                        :
                                     </div>
                                     <div className="total-time">
-                                        00:00
+                                        00
                                     </div>
                                 </div>
                             </div>

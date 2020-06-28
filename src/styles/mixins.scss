@@ -12,3 +12,7 @@
 @mixin box-shadow-default($color: rgba(50, 250, 255, .75)){
     box-shadow: 0 0 10px $color;
 }
+
+@mixin transition-default(){
+    transition: all linear 0.3s;
+}

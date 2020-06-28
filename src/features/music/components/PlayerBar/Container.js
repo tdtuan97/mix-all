@@ -115,18 +115,23 @@ class Container extends Component {
         if (prevProps !== this.props) {
             let music = this.props.music;
 
-            switch (music.status) {
-                case 'playing':
-                    this.refs.audioRef.play();
-                    break;
-                case 'paused':
-                    this.refs.audioRef.pause();
-                    break;
-                case 'stopped':
-                    this.refs.audioRef.pause();
-                    break;
-                default:
-                    break;
+            try{
+                switch (music.status) {
+                    case 'playing':
+                        this.refs.audioRef.play();
+                        break;
+                    case 'paused':
+                        this.refs.audioRef.pause();
+                        break;
+                    case 'stopped':
+                        this.refs.audioRef.pause();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (e) {
+                console.log('Fail to load audio')
             }
         }
     }
