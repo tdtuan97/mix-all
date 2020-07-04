@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Card, Slider} from "antd";
+import {Slider} from "antd";
 import {
     PlayCircleOutlined,
     PauseCircleOutlined,
@@ -16,7 +16,7 @@ class PlayerBar extends Component {
 
     formatTime = (seconds) => {
         let minutes = Math.floor((seconds) / 60);
-        seconds = seconds - (minutes * 60);
+        seconds = Math.floor(seconds) - (minutes * 60);
         if (minutes < 10) {
             minutes = "0" + minutes;
         }
@@ -28,7 +28,7 @@ class PlayerBar extends Component {
 
     render() {
         let {currentAudio} = this.props;
-        let {isPlay, seconds, duration, status} = this.props;
+        let {isPlay, seconds, duration} = this.props;
         let {
             handleTogglePlay,
             handleChangeSlider,
@@ -36,9 +36,8 @@ class PlayerBar extends Component {
             handleGetPreviousAudio,
         } = this.props;
         let imagePlayer = require("../../images/player.png");
-
         return (
-            <div className="player-bar-presentational">
+            <div className="player-bar-presentational transparent">
                 <div className="player-bar-wrapper">
                     <div className="bar-controller bar-component">
                         <div className="bar-action" onClick={handleGetPreviousAudio}>
@@ -76,13 +75,13 @@ class PlayerBar extends Component {
                                 </div>
                                 <div className="timer-description">
                                     <div className="current-time">
-                                        00
+                                        {this.formatTime(seconds)}
                                     </div>
                                     <div className="space-time">
-                                        :
+                                        /
                                     </div>
                                     <div className="total-time">
-                                        00
+                                        {this.formatTime(duration)}
                                     </div>
                                 </div>
                             </div>

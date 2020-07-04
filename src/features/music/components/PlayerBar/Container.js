@@ -114,7 +114,6 @@ class Container extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps !== this.props) {
             let music = this.props.music;
-
             try{
                 switch (music.status) {
                     case 'playing':
