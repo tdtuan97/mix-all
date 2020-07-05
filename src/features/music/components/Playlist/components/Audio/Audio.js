@@ -3,44 +3,49 @@ import {
     HeartOutlined,
     EllipsisOutlined,
 } from '@ant-design/icons';
+import { Button } from 'antd';
 import { ActionIcon } from '../../../ActionIcon';
 
-class PlaylistAudio extends Component {
+class Audio extends Component {
 
     render() {
-        let { currentAudio } = this.props;
+        let { audio } = this.props;
+        let { handleSelectAudio } = this.props;
         let imagePlayer = require('../../../../images/player.png');
-
         return (
             <div className="playlist-audio-president">
                 <div className="playlist-audio">
                     <div className="audio-group-content">
                         <div className="audio-number content">
-                            1
+                            {this.props.index + 1}
                         </div>
                         <div className="audio-image content">
-                            <img className="audio-image-tag" src={imagePlayer} alt="image-content"/>
+                            <img className="audio-image-tag" src={imagePlayer} alt=""/>
                         </div>
                         <div className="audio-description content">
-                            <div className="audio-title content-description">
-                                {currentAudio.title}
-                            </div>
+                           <Button type="text"
+                                    className="audio-title content-description"
+                                    onClick={handleSelectAudio}
+                            >
+                                {audio.title}
+                            </Button>
+
                             <div className="audio-artist content-description">
-                                {currentAudio.artist}
+                                {audio.artist}
                             </div>
                         </div>
                         <div className="audio-duration content">
-                            04:54
+                            {audio.duration}
                         </div>
                     </div>
                     <div className="audio-group-action">
                         <div className="action">
-                            <ActionIcon lineHeight="48px">
+                            <ActionIcon lineHeight="54px">
                                 <HeartOutlined/>
                             </ActionIcon>
                         </div>
                         <div className="action">
-                            <ActionIcon lineHeight="48px">
+                            <ActionIcon lineHeight="54px">
                                 <EllipsisOutlined/>
                             </ActionIcon>
                         </div>
@@ -51,4 +56,4 @@ class PlaylistAudio extends Component {
     }
 }
 
-export default PlaylistAudio;
+export default Audio;

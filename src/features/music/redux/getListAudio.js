@@ -1,19 +1,19 @@
 import {GET_LIST_AUDIO} from "./constants";
-import axios from "axios";
+//import axios from "axios";
 
 import db from "../database/firestore"
 
 const refMusic = db.collection('t_music')
 
 export function getListAudio() {
-    let url = 'http://localhost:8080/api/v1/music';
+    //let url = 'http://localhost:8080/api/v1/music';
 
     return dispatch => {
         // Use server google
         return getListAudioFirestore(dispatch);
 
         //Use server nodejs
-        return axios.get(url, {})
+        /*return axios.get(url, {})
             .then(response => {
                 dispatch(getListAudioAction(response.data))
             }).catch(error => {
@@ -21,7 +21,7 @@ export function getListAudio() {
                 console.log(error)
             }).finally(() => {
 
-            });
+            });*/
     }
 }
 

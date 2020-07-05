@@ -1,0 +1,67 @@
+$heightComponentAudio: 54px;
+.playlist-audio-container {
+    padding: 6px 0;
+    border-bottom: 1px solid $colorTransparent;
+    &:hover{
+        background-color: #60626691;
+    }
+    .playlist-audio-president {
+        .playlist-audio {
+            display: flex;
+
+            .audio-group-content {
+                display: flex;
+                width: 100%;
+                padding-right: $distanceBlock;
+
+                .content {
+                    padding: 0 $distanceComponent;
+                }
+
+                .audio-number {
+                    text-align: center;
+                    width: 64px;
+                    @include set-font($fontSizeMedium, $heightComponentAudio, $colorMusic);
+                }
+
+                .audio-image {
+                    .audio-image-tag {
+                        height: $heightComponentAudio;
+                        width: $heightComponentAudio;
+                    }
+                }
+
+                .audio-description {
+                    width: 100%;
+
+                    .audio-title {
+                        font-size: $fontSizeMedium;
+                        font-weight: bold;
+                        cursor: pointer;
+                        background-color: unset;
+                        border: none;
+                        padding: 0;
+                    }
+
+                    .audio-artist {
+                        cursor: pointer;
+                    }
+                }
+
+                .audio-duration {
+                    @include set-font($fontSizeDefault, 48px, $colorMusic);
+                }
+            }
+
+            .audio-group-action {
+                min-width: max-content;
+                display: flex;
+
+                .action {
+                    padding: 0 $distanceComponent;
+                }
+            }
+
+        }
+    }
+}

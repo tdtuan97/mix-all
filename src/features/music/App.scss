@@ -1,5 +1,8 @@
 $colorMusic: #fff;
+$colorMusicSlow: #a19f9f;
 $colorHighlight: $colorPrimaryHighLight;
+
+$colorTransparent: #60626691;
 
 .content-description {
     color: $colorMusic;
@@ -26,7 +29,7 @@ $colorHighlight: $colorPrimaryHighLight;
     overflow: hidden;
 
     .music-container {
-        padding-top: 9%;
+        padding-top: 70px;
         width: 100%;
         color: $colorMusic;
     }
