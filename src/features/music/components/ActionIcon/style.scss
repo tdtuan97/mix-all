@@ -1,0 +1,14 @@
+.action-icon {
+    cursor: pointer;
+    @include transition-default();
+
+    &:hover {
+        color: rgba(50, 250, 255, .75);
+
+        svg {
+            fill: rgba(50, 250, 255, 0.75);
+            -webkit-filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
+            filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
+        }
+    }
+}
