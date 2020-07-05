@@ -1,3 +1,16 @@
 .music-home{
-    text-align: center;
+    /*text-align: center;*/
+
+    margin: auto;
+    max-width: $maxWidthContainer;
+
+    display: flex;
+    .playlist-container{
+        width: 100%;
+        padding: 0 $distanceComponent;
+    }
+    .music-player-container{
+        padding: 0 $distanceComponent;
+        min-width: max-content;
+    }
 }

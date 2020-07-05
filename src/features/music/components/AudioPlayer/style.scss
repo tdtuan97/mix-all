@@ -1,5 +1,6 @@
 .music-player-container {
     .music-player-presentational {
+        text-align: center;
         .music-player-wrapper {
             display: inline-block;
             background: rgba(77, 60, 60, 0.55);
@@ -56,7 +57,7 @@
             }
 
             .player-description {
-                color: $colorWhite;
+                color: $colorMusic;
                 font-weight: 600;
                 .description {
                     margin-bottom: $distanceComponent;

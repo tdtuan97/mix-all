@@ -1,12 +1,33 @@
-.music-layout{
+$colorMusic: #fff;
+$colorHighlight: $colorPrimaryHighLight;
+
+.content-description {
+    color: $colorMusic;
+    cursor: default;
+    @include transition-default();
+
+    &:hover {
+        color: $colorHighlight;
+    }
+}
+
+.audio-image-tag {
+    object-fit: contain;
+    object-position: center;
+    vertical-align: middle;
+}
+
+.music-layout {
     width: 100%;
     min-height: 100%;
     position: absolute;
     background-size: cover;
     background-position: center;
-    .music-container{
+    overflow: hidden;
+
+    .music-container {
         padding-top: 9%;
         width: 100%;
-        color: $colorWhite;
+        color: $colorMusic;
     }
 }

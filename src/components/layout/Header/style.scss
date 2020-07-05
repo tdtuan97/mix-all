@@ -1,15 +1,18 @@
 @import "./src/styles/variables";
 @import "./src/styles/mixins";
+
 $colorHeader: $colorWhite;
 .header {
     background: $colorHeader;
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     z-index: $zIndexHeader;
     position: fixed;
     top: 0;
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .1);
     text-align: left;
-    .header-content{
+
+    .header-content {
         padding: 0 24px;
 
         height: 100%;
@@ -17,40 +20,46 @@ $colorHeader: $colorWhite;
         position: relative;
         margin: auto;
 
-        .header-logo{
+        .header-logo {
             display: inline-block;
             position: relative;
             line-height: $headerHeight;
             margin-right: $distanceComponent;
         }
-        .header-menu{
+
+        .header-menu {
             display: inline-block;
-            .menu-content{
+
+            .menu-content {
                 line-height: $headerHeight;
                 height: $headerHeight;
                 white-space: nowrap;
                 margin: 0;
                 list-style-type: none;
-                .menu-item{
+
+                .menu-item {
                     margin-top: 0;
                     display: inline-block;
                     padding: 0 24px;
                     font-weight: bolder;
-                    a{
+
+                    a {
                         text-decoration: none;
                         color: $colorPrimary;
 
-                        &:hover{
+                        &:hover {
                             color: $colorPrimaryHighLight;
                         }
                     }
                 }
-                .menu-item.active{
+
+                .menu-item.active {
                     color: $colorPrimarySlowLight;
                 }
             }
         }
-        .auth-menu{
+
+        .auth-menu {
             float: right;
         }
     }
@@ -58,6 +67,7 @@ $colorHeader: $colorWhite;
 
 .header.transparent {
     background: rgba(39, 75, 80, 0.2);
+
     .header-content {
         .header-menu {
             .menu-content {

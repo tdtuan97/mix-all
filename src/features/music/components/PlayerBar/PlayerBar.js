@@ -1,64 +1,74 @@
-import React, {Component} from "react";
-import {Slider} from "antd";
+import React, { Component } from 'react';
+import { Slider } from 'antd';
 import {
     PlayCircleOutlined,
     PauseCircleOutlined,
     MenuUnfoldOutlined,
     StepBackwardOutlined,
-    StepForwardOutlined
-} from "@ant-design/icons";
+    StepForwardOutlined,
+} from '@ant-design/icons';
+import { ActionIcon } from '../ActionIcon';
 
 class PlayerBar extends Component {
 
     formatTimeDuration = (seconds) => {
         return this.formatTime(seconds);
-    }
+    };
 
     formatTime = (seconds) => {
         let minutes = Math.floor((seconds) / 60);
         seconds = Math.floor(seconds) - (minutes * 60);
         if (minutes < 10) {
-            minutes = "0" + minutes;
+            minutes = '0' + minutes;
         }
         if (seconds < 10) {
-            seconds = "0" + seconds;
+            seconds = '0' + seconds;
         }
         return minutes + ':' + seconds;
-    }
+    };
 
     render() {
-        let {currentAudio} = this.props;
-        let {isPlay, seconds, duration} = this.props;
+        let { currentAudio } = this.props;
+        let { isPlay, seconds, duration } = this.props;
         let {
             handleTogglePlay,
             handleChangeSlider,
             handleGetNextAudio,
             handleGetPreviousAudio,
         } = this.props;
-        let imagePlayer = require("../../images/player.png");
+        let imagePlayer = require('../../images/player.png');
         return (
             <div className="player-bar-presentational transparent">
                 <div className="player-bar-wrapper">
                     <div className="bar-controller bar-component">
                         <div className="bar-action" onClick={handleGetPreviousAudio}>
-                            <StepBackwardOutlined className="action-icon"/>
+                            <ActionIcon sizeIcon="32px">
+                                <StepBackwardOutlined/>
+                            </ActionIcon>
                         </div>
                         <div className="bar-action" onClick={handleTogglePlay}>
                             {
                                 isPlay ?
-                                    <PauseCircleOutlined className="action-icon"/>
-                                    : <PlayCircleOutlined className="action-icon"/>
+                                    <ActionIcon sizeIcon="32px">
+                                        <PauseCircleOutlined/>
+                                    </ActionIcon>
+                                    :
+                                    <ActionIcon sizeIcon="32px">
+                                        <PlayCircleOutlined/>
+                                    </ActionIcon>
                             }
                         </div>
                         <div className="bar-action" onClick={handleGetNextAudio}>
-                            <StepForwardOutlined className="action-icon"/>
+                            <ActionIcon sizeIcon="32px" >
+                                <StepForwardOutlined/>
+                            </ActionIcon>
                         </div>
                     </div>
                     <div className="bar-main bar-component">
                         <div className="bar-main-image">
                             <img
-                                 src={imagePlayer}
-                                 alt="player"/>
+                                src={imagePlayer}
+                                alt="player"/>
                         </div>
                         <div className="bar-main-group-slider">
                             <div className="bar-main-description">
@@ -110,4 +120,4 @@ class PlayerBar extends Component {
     }
 }
 
-export default PlayerBar
+export default PlayerBar;

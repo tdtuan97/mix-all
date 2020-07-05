@@ -1,16 +1,14 @@
-$color: beige;
-$colorHighlight: #f3f3b5;
-
 .player-bar-container {
     .player-bar-presentational {
         background: $colorGray;
-        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
         z-index: $zIndexHeader;
         position: fixed;
         bottom: 0;
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
         text-align: left;
-        color: $color;
+        color: $colorMusic;
 
         .player-bar-wrapper {
             padding-top: 5px;
@@ -33,21 +31,6 @@ $colorHighlight: #f3f3b5;
                 .bar-action {
                     padding: 0 $distanceComponent;
                     height: 32px;
-
-                    .action-icon {
-                        font-size: 32px;
-                        cursor: pointer;
-                        @include transition-default();
-                        &:hover {
-                            color: rgba(50, 250, 255, .75);
-
-                            svg {
-                                fill: rgba(50, 250, 255, 0.75);
-                                -webkit-filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
-                                filter: drop-shadow(0 0 10px rgba(50, 250, 255, .75));
-                            }
-                        }
-                    }
                 }
 
             }
@@ -64,7 +47,6 @@ $colorHighlight: #f3f3b5;
                         object-position: center;
 
                         vertical-align: middle;
-                        display: inline-block;
                     }
                 }
 
@@ -78,10 +60,6 @@ $colorHighlight: #f3f3b5;
 
                         .content-description {
                             width: 100%;
-                            @include transition-default();
-                            &:hover {
-                                color: $colorPrimaryHighLight;
-                            }
 
                             .title-audio {
 
@@ -104,7 +82,7 @@ $colorHighlight: #f3f3b5;
                             white-space: nowrap;
                             @include transition-default();
                             &:hover {
-                                color: $colorPrimaryHighLight;
+                                color: $colorHighlight;
                             }
 
                             .space-time {
