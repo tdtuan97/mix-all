@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-    Card,
-} from 'antd';
 import { Audio } from './components/Audio';
 
 class Playlist extends Component {
@@ -11,7 +8,7 @@ class Playlist extends Component {
         let { listAudio } = this.props;
         return (
             <div className="playlist-presentational">
-                <Card className="playlist-wrapper">
+                <div className="playlist-wrapper">
                     <div className="playlist-title">
                         Playing
                     </div>
@@ -23,7 +20,7 @@ class Playlist extends Component {
                                 })
                         }
                     </div>
-                </Card>
+                </div>
             </div>
         );
     }

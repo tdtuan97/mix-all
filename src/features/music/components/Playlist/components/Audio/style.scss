@@ -1,10 +1,20 @@
-$heightComponentAudio: 54px;
+$heightComponentAudio: 48px;
+$backgroundActive: #60626691;
+
 .playlist-audio-container {
-    padding: 6px 0;
+    padding: 3px 0;
     border-bottom: 1px solid $colorTransparent;
-    &:hover{
-        background-color: #60626691;
+    color: $colorMusicSlow;
+    @include transition-default();
+    &:hover {
+        background-color: $backgroundActive;
+        color: $colorMusic;
     }
+
+    &:last-child{
+        border-bottom: 0;
+    }
+
     .playlist-audio-president {
         .playlist-audio {
             display: flex;
@@ -21,7 +31,7 @@ $heightComponentAudio: 54px;
                 .audio-number {
                     text-align: center;
                     width: 64px;
-                    @include set-font($fontSizeMedium, $heightComponentAudio, $colorMusic);
+                    @include set-font($fontSizeMedium, $heightComponentAudio, inherit);
                 }
 
                 .audio-image {
@@ -35,21 +45,23 @@ $heightComponentAudio: 54px;
                     width: 100%;
 
                     .audio-title {
-                        font-size: $fontSizeMedium;
-                        font-weight: bold;
-                        cursor: pointer;
+                        transition: unset;
+                        height: 26px;
                         background-color: unset;
                         border: none;
                         padding: 0;
+                        font-weight: bold;
+                        @include set-font($fontSizeMedium, $lineHeightMedium, inherit);
                     }
 
                     .audio-artist {
-                        cursor: pointer;
+                        color: inherit;
                     }
                 }
 
                 .audio-duration {
-                    @include set-font($fontSizeDefault, 48px, $colorMusic);
+                    width: max-content;
+                    @include set-font($fontSizeDefault, 48px, inherit);
                 }
             }
 
@@ -64,4 +76,8 @@ $heightComponentAudio: 54px;
 
         }
     }
+}
+.playlist-audio-container.active {
+    background-color: $backgroundActive;
+    color: $colorMusic;
 }

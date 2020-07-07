@@ -23,29 +23,30 @@ class Audio extends Component {
                             <img className="audio-image-tag" src={imagePlayer} alt=""/>
                         </div>
                         <div className="audio-description content">
-                           <Button type="text"
-                                    className="audio-title content-description"
+                            <Button type="text"
+                                    className="audio-title"
                                     onClick={handleSelectAudio}
+                                    value={this.props.index}
                             >
                                 {audio.title}
                             </Button>
 
-                            <div className="audio-artist content-description">
+                            <div className="audio-artist">
                                 {audio.artist}
                             </div>
                         </div>
                         <div className="audio-duration content">
-                            {audio.duration}
+                            {audio.length}
                         </div>
                     </div>
                     <div className="audio-group-action">
                         <div className="action">
-                            <ActionIcon lineHeight="54px">
+                            <ActionIcon lineHeight="48px">
                                 <HeartOutlined/>
                             </ActionIcon>
                         </div>
                         <div className="action">
-                            <ActionIcon lineHeight="54px">
+                            <ActionIcon lineHeight="48px">
                                 <EllipsisOutlined/>
                             </ActionIcon>
                         </div>

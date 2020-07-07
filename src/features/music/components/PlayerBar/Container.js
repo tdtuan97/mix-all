@@ -125,6 +125,9 @@ class Container extends Component {
                     case 'stopped':
                         this.refs.audioRef.pause();
                         break;
+                    case null:
+                        this.refs.audioRef.pause();
+                        break;
                     default:
                         break;
                 }
@@ -137,6 +140,7 @@ class Container extends Component {
 
     render() {
         let {status, isPlay, duration, seconds, currentAudio} = this.props.music;
+
         return (
             <div className="player-bar-container">
                 <PlayerBar
